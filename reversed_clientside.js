@@ -571,24 +571,18 @@ var Player = function(data) {
 			if (entity.level >= 9) {
 				x = mapWIDTH * 4 / 6 - 600;
 				y = mapHEIGHT - 600;
+			} else if (entity.level >= 7) {
+				x = mapWIDTH * 1 / 6 + 600;
+				y = mapHEIGHT * 2 / 6 + 600;
+			} else if (entity.level >= 5) {
+				x = mapWIDTH * 5 / 6 - 600;
+				y = mapHEIGHT * 4 / 6 - 600;
+			} else if (entity.level >= 3) {
+				x = mapWIDTH * 1 / 6 + 600;
+				y = mapHEIGHT * 5 / 6 - 600;
 			} else {
-				if (entity.level >= 7) {
-					x = mapWIDTH * 1 / 6 + 600;
-					y = mapHEIGHT * 2 / 6 + 600;
-				} else {
-					if (entity.level >= 5) {
-						x = mapWIDTH * 5 / 6 - 600;
-						y = mapHEIGHT * 4 / 6 - 600;
-					} else {
-						if (entity.level >= 3) {
-							x = mapWIDTH * 1 / 6 + 600;
-							y = mapHEIGHT * 5 / 6 - 600;
-						} else {
-							x = mapWIDTH / 2;
-							y = mapHEIGHT * 3.5 / 6;
-						}
-					}
-				}
+				x = mapWIDTH / 2;
+				y = mapHEIGHT * 3.5 / 6;
 			}
 			ret = getAngleFromPoints(entity.x, entity.y, x, y);
 			if (Math.abs(entity.x - x) < 400 && Math.abs(entity.y - y) < 400) {
@@ -611,116 +605,82 @@ var Player = function(data) {
 		if (entity.type == 1) {
 			entity.statDmg = entity.statDmg * 1.7 / 4 * 4;
 			entity.statReload /= 1.6;
-		} else {
-			if (entity.type == 2) {
-				entity.statDmg = entity.statDmg / 3 * 3;
-				entity.statRange /= 1.6;
-				entity.statHp *= 1.4;
-			} else {
-				if (entity.type == 3) {
-					entity.statDmg = entity.statDmg * 1.2 / 2 / 1.5 * 2;
-					entity.statRange *= 1.3;
-					entity.statReload *= 1.5;
-					entity.statHp *= 1.1;
-				} else {
-					if (entity.type == 4) {
-						entity.statDmg = entity.statDmg / 2 * 8;
-						entity.statRange /= 1.5;
-					} else {
-						if (entity.type == 5) {
-							entity.statDmg = entity.statDmg * 1.7 / 7 * 7;
-							entity.statRange = entity.statRange * 1.3;
-							entity.statReload = entity.statReload / 1.1;
-							entity.statHp /= 1.2;
-						} else {
-							if (entity.type == 6) {
-								entity.statDmg *= 2;
-								entity.statRange *= 2.3;
-								entity.statReload /= 2.2;
-								entity.statHp /= 1.3;
-							} else {
-								if (entity.type == 7) {
-									entity.statDmg = entity.statDmg * 1.2 / 1.5 / 1.5 / 1.5;
-									entity.statReload = entity.statReload * 1.5 * 1.5 * 1.5;
-									entity.statRange /= 1.7;
-								} else {
-									if (entity.type == 8) {
-										entity.statDmg = entity.statDmg * 1.15 * 2 / 3 * 3;
-										entity.statReload = entity.statReload / 2;
-										entity.statRange = entity.statRange * 1.3;
-										entity.statHp /= 1.3;
-									} else {
-										if (entity.type == 9) {
-											entity.statDmg = entity.statDmg * 1.3 * 1.2 * 2 / 4 * 4;
-											entity.statReload = entity.statReload / 2;
-											entity.statRange /= 1.7;
-											entity.statHp /= 1.4;
-										} else {
-											if (entity.type == 10) {
-												entity.statDmg = entity.statDmg / 1.5 / 1.5 / 1.5 / 1.5 / 1.2;
-												entity.statReload = entity.statReload * 1.5 * 1.5 * 1.5 * 1.5;
-											} else {
-												if (entity.type == 11) {
-													entity.statDmg *= 1.6;
-													entity.statReload /= 1.7;
-													entity.statRange /= 1.8;
-													entity.statHp *= 1.3;
-												} else {
-													if (entity.type == 12) {
-														entity.statDmg *= 1.2;
-														entity.statRange *= 2.3;
-														entity.statReload /= 1.1;
-														entity.statHp /= 1.3;
-													} else {
-														if (entity.type == 13) {
-															entity.statDmg = entity.statDmg * 1.2 * 1.5 / 7 * 7;
-															entity.statReload = entity.statReload / 1.5;
-															entity.statRange = entity.statRange * 1.2;
-															entity.statHp *= 1.1;
-														} else {
-															if (entity.type == 14) {
-																entity.statDmg = entity.statDmg * 1.1 / 3 * 3;
-																entity.statRange = entity.statRange / 1.1;
-																entity.statHp *= 1.1;
-																entity.statReload *= 1.1;
-															} else {
-																if (entity.type == 15) {
-																	entity.statDmg *= 1.9;
-																	entity.statRange *= 2.2;
-																	entity.statReload /= 1.6;
-																} else {
-																	if (entity.type == 16) {
-																		entity.statDmg *= 3.6;
-																		entity.statRange *= 2.2;
-																		entity.statReload /= 3;
-																	} else {
-																		if (entity.type == 17) {
-																			entity.statDmg *= 2.3;
-																			entity.statRange *= 2.2;
-																			entity.statReload /= 2.4;
-																		} else {
-																			if (entity.type == 18) {
-																				entity.statDmg *= 2.2;
-																				entity.statRange *= 2.3;
-																				entity.statReload /= 2.2;
-																				entity.statHp /= 1.3;
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+		} else if (entity.type == 2) {
+			entity.statDmg = entity.statDmg / 3 * 3;
+			entity.statRange /= 1.6;
+			entity.statHp *= 1.4;
+		} else if (entity.type == 3) {
+			entity.statDmg = entity.statDmg * 1.2 / 2 / 1.5 * 2;
+			entity.statRange *= 1.3;
+			entity.statReload *= 1.5;
+			entity.statHp *= 1.1;
+		} else if (entity.type == 4) {
+			entity.statDmg = entity.statDmg / 2 * 8;
+			entity.statRange /= 1.5;
+		} else if (entity.type == 5) {
+			entity.statDmg = entity.statDmg * 1.7 / 7 * 7;
+			entity.statRange = entity.statRange * 1.3;
+			entity.statReload = entity.statReload / 1.1;
+			entity.statHp /= 1.2;
+		} else if (entity.type == 6) {
+			entity.statDmg *= 2;
+			entity.statRange *= 2.3;
+			entity.statReload /= 2.2;
+			entity.statHp /= 1.3;
+		} else if (entity.type == 7) {
+			entity.statDmg = entity.statDmg * 1.2 / 1.5 / 1.5 / 1.5;
+			entity.statReload = entity.statReload * 1.5 * 1.5 * 1.5;
+			entity.statRange /= 1.7;
+		} else if (entity.type == 8) {
+			entity.statDmg = entity.statDmg * 1.15 * 2 / 3 * 3;
+			entity.statReload = entity.statReload / 2;
+			entity.statRange = entity.statRange * 1.3;
+			entity.statHp /= 1.3;
+		} else if (entity.type == 9) {
+			entity.statDmg = entity.statDmg * 1.3 * 1.2 * 2 / 4 * 4;
+			entity.statReload = entity.statReload / 2;
+			entity.statRange /= 1.7;
+			entity.statHp /= 1.4;
+		} else if (entity.type == 10) {
+			entity.statDmg = entity.statDmg / 1.5 / 1.5 / 1.5 / 1.5 / 1.2;
+			entity.statReload = entity.statReload * 1.5 * 1.5 * 1.5 * 1.5;
+		} else if (entity.type == 11) {
+			entity.statDmg *= 1.6;
+			entity.statReload /= 1.7;
+			entity.statRange /= 1.8;
+			entity.statHp *= 1.3;
+		} else if (entity.type == 12) {
+			entity.statDmg *= 1.2;
+			entity.statRange *= 2.3;
+			entity.statReload /= 1.1;
+			entity.statHp /= 1.3;
+		} else if (entity.type == 13) {
+			entity.statDmg = entity.statDmg * 1.2 * 1.5 / 7 * 7;
+			entity.statReload = entity.statReload / 1.5;
+			entity.statRange = entity.statRange * 1.2;
+			entity.statHp *= 1.1;
+		} else if (entity.type == 14) {
+			entity.statDmg = entity.statDmg * 1.1 / 3 * 3;
+			entity.statRange = entity.statRange / 1.1;
+			entity.statHp *= 1.1;
+			entity.statReload *= 1.1;
+		} else if (entity.type == 15) {
+			entity.statDmg *= 1.9;
+			entity.statRange *= 2.2;
+			entity.statReload /= 1.6;
+		} else if (entity.type == 16) {
+			entity.statDmg *= 3.6;
+			entity.statRange *= 2.2;
+			entity.statReload /= 3;
+		} else if (entity.type == 17) {
+			entity.statDmg *= 2.3;
+			entity.statRange *= 2.2;
+			entity.statReload /= 2.4;
+		} else if (entity.type == 18) {
+			entity.statDmg *= 2.2;
+			entity.statRange *= 2.3;
+			entity.statReload /= 2.2;
+			entity.statHp /= 1.3;
 		}
 		entity.statHp = Math.floor(entity.statHp);
 		entity.statSpd = Math.floor(entity.statSpd);
@@ -794,24 +754,18 @@ var Player = function(data) {
 					} else {
 						ctx.fillStyle = "#148910";
 					}
-				} else {
-					if (entity.animation == 2) {
-						ctx.fillStyle = "#57AEBF";
-					} else {
-						if (entity.animation == 4) {
-							ctx.fillStyle = "#EFC700";
-						}
-					}
+				} else if (entity.animation == 2) {
+					ctx.fillStyle = "#57AEBF";
+				} else if (entity.animation == 4) {
+					ctx.fillStyle = "#EFC700";
 				}
 				ctx.fillRect(x - 35 + 14, y + 60, dx, 10);
 			}
 		}
 		if (entity.animation == 2) {
 			drawRotatedImage(Img.other[4], x, y, 0);
-		} else {
-			if (entity.animation == 4) {
-				drawRotatedImage(Img.other[5], x, y, 0);
-			}
+		} else if (entity.animation == 4) {
+			drawRotatedImage(Img.other[5], x, y, 0);
 		}
 	};
 	entity.drawMessage = function() {
@@ -844,17 +798,13 @@ var Player = function(data) {
 				entity.map = 0;
 				displaySpawnMessage("Cannot connect to server...");
 				deathTimer = FPS * 2;
-			} else {
-				if (entity.map == 1) {
-					entity.map = 0;
-				}
+			} else if (entity.map == 1) {
+				entity.map = 0;
 			}
 			return false;
-		} else {
-			if (entity.id == selfId && loadPlayButton == 2) {
-				loadPlayButton = 1;
-				displaySpawnMessage("Reconnected.");
-			}
+		} else if (entity.id == selfId && loadPlayButton == 2) {
+			loadPlayButton = 1;
+			displaySpawnMessage("Reconnected.");
 		}
 		return true;
 	};
@@ -1426,14 +1376,10 @@ var NPC = function(data) {
 		if (entity.glow == 1) {
 			drawRotatedImage(Img.other[3], x, y, 0);
 		}
-		if (entity.dash == 1) {
-			if (entity.scale < 1.1) {
-				entity.scale += .01;
-			}
-		} else {
-			if (entity.scale > 1) {
-				entity.scale -= .01;
-			}
+		if (entity.dash == 1 && entity.scale < 1.1) {
+			entity.scale += .01;
+		} else if (entity.scale > 1) {
+			entity.scale -= .01;
 		}
 		if (entity.topTen == 1) {
 			drawRotatedImage(Img.ride[entity.ride], x, y, entity.angle);
@@ -1471,14 +1417,10 @@ var NPC = function(data) {
 					} else {
 						ctx.fillStyle = "#148910";
 					}
-				} else {
-					if (entity.animation == 2) {
-						ctx.fillStyle = "#57AEBF";
-					} else {
-						if (entity.animation == 4) {
-							ctx.fillStyle = "#EFC700";
-						}
-					}
+				} else if (entity.animation == 2) {
+					ctx.fillStyle = "#57AEBF";
+				} else if (entity.animation == 4) {
+					ctx.fillStyle = "#EFC700";
 				}
 				ctx.fillRect(x - 35 + 14, y + 60, r, 10);
 			}
