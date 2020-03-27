@@ -1544,7 +1544,7 @@ socket.on("update", function(data) {
 		return;
 	}
 	if (data.player) {
-		for (player of Player.list) {
+		for (player of Object.entries(Player.list)) {
 			if (player.id !== selfId) {
 				player.newX = -100000;
 			}
@@ -1631,7 +1631,7 @@ socket.on("update", function(data) {
 		}
 	}
 	if (data.bullet) {
-		for (bullet of Bullet.list) {
+		for (bullet of Object.entries(Bullet.list)) {
 			bullet.isHere = 0;
 		}
 		for (var i = 0; i < data.bullet.length; i++) {
@@ -1663,7 +1663,7 @@ socket.on("update", function(data) {
 		}
 	}
 	if (data.mob) {
-		for (mob of Mob.list) {
+		for (mob of Object.entries(Mob.list)) {
 			mob.isHere = 0;
 		}
 		for (var i = 0; i < data.mob.length; i++) {
@@ -1698,7 +1698,7 @@ socket.on("update", function(data) {
 		}
 	}
 	if (data.npc) {
-		for (npc of NPC.list) {
+		for (npc of Object.entries(NPC.list)) {
 			npc.isHere = 0;
 		}
 		for (var i = 0; i < data.npc.length; i++) {
@@ -2119,7 +2119,7 @@ var drawLeaderboard = function() {
 	ctx.lineWidth = 5;
 	ctx.strokeStyle = "#333";
 	ctx.stroke();
-	for (mob of Mob.list) {
+	for (mob of Object.entries(Mob.list)) {
 		if (mob.type == 27 || mob.type == 23 || mob.type == 48 || mob.type == 49 || mob.type == 8 || mob.type == 51 || mob.type == 52 || mob.type == 53 || mob.type == 54 || mob.type == 56 || mob.type == 57) {
 			ctx.beginPath();
 			ctx.arc(WIDTH - 155 + 140 * mob.x / mapWIDTH, HEIGHT - 155 - 60 + 140 * mob.y / mapHEIGHT, 5.5, 0, 2 * Math.PI);
@@ -2502,16 +2502,16 @@ function animate() {
 		return;
 	}
 	ctx.clearRect(0, 0, WIDTH, HEIGHT);
-	for (player of Player.list) {
+	for (player of Object.entries(Player.list)) {
 		player.update();
 	}
-	for (npc of NPC.list) {
+	for (npc of Object.entries(NPC.list)) {
 		npc.update();
 	}
-	for (mob of Mob.list) {
+	for (mob of Object.entries(Mob.list)) {
 		mob.update();
 	}
-	for (bullet of Bullet.list) {
+	for (bullet of Object.entries(Bullet.list)) {
 		bullet.update();
 	}
 	if (intervalTimer % (FPS * 60) == 0) {
@@ -2572,27 +2572,27 @@ function animate() {
 		}
 	}
 	drawMap();
-	for (decoration of Decoration.list) {
+	for (decoration of Object.entries(Decoration.list)) {
 		if (decoration.isWater) {
 			decoration.draw();
 		}
 	}
 	drawLines();
-	for (decoration of Decoration.list) {
+	for (decoration of Object.entries(Decoration.list)) {
 		if (!decoration.isWater) {
 			decoration.draw();
 		}
 	}
-	for (food of Food.list) {
+	for (food of Object.entries(Food.list)) {
 		food.draw();
 	}
-	for (mob of Mob.list) {
+	for (mob of Object.entries(Mob.list)) {
 		mob.draw();
 	}
-	for (npc of NPC.list) {
+	for (npc of Object.entries(NPC.list)) {
 		npc.draw();
 	}
-	for (player of Player.list) {
+	for (player of Object.entries(Player.list)) {
 		if (player.id != selfId && player.dash == 0) {
 			player.draw();
 		}
@@ -2600,7 +2600,7 @@ function animate() {
 	if (Player.list[selfId].dash == 0) {
 		Player.list[selfId].draw();
 	}
-	for (player of Player.list) {
+	for (player of Object.entries(Player.list)) {
 		if (player.id != selfId && player.dash == 1) {
 			player.draw();
 		}
@@ -2608,10 +2608,10 @@ function animate() {
 	if (Player.list[selfId].dash == 1) {
 		Player.list[selfId].draw();
 	}
-	for (bullet of Bullet.list) {
+	for (bullet of Object.entries(Bullet.list)) {
 		bullet.draw();
 	}
-	for (player of Player.list) {
+	for (player of Object.entries(Player.list)) {
 		player.drawMessage();
 	}
 	if (!(Player.list[selfId].score <= scoreRecord)) {
