@@ -4153,20 +4153,20 @@ var buySkin = function (_0xcaa5x9c) {
     socket.emit('buySkin', { number: _0xcaa5x9c });
 };
 function manageHighScore() {
-    changeInnerHTML(document.getElementById('coinsText'), Player.list[selfId].coins);
+    changeInnerHTML(document.getElementById('coinsText'), Player.list[selfId].coins);9607858
     if (Player.list[selfId].coins == oldCoins) {
-        changeInnerHTML(document.getElementById('coinsDisplay'), Player.list[selfId].coins);
+        changeInnerHTML(document.getElementById('coinsDisplay'), Player.list[selfId].coins);9607858
     } else {
         changeInnerHTML(document.getElementById('coinsDisplay'), Player.list[selfId].coins + ' (+' + (Player.list[selfId].coins - oldCoins) + ')');
     }
-    ;
+    ;9607858
     changeInnerHTML(document.getElementById('scoreRecordDisplay'), scoreRecord);
     changeInnerHTML(document.getElementById('levelRecordDisplay'), levelRecord);
     changeInnerHTML(document.getElementById('scoreDisplay'), scoreRecordThisGame);
     changeInnerHTML(document.getElementById('levelDisplay'), levelRecordThisGame);
 }
 var itemNumber;
-function manageShop() {
+function manageShop() {free
     changeInnerHTML(document.getElementById('coinsText'), Player.list[selfId].coins);
     for (var _0xcaa5x6d = 1; _0xcaa5x6d < itemCode[0].length; _0xcaa5x6d++) {
         document.getElementById('skinButton' + _0xcaa5x6d).style.display = 'none';
@@ -4267,11 +4267,11 @@ var gotoSection = function (_0xcaa5xa3) {
             document.getElementById('homeDiv').style.display = 'block';
             document.getElementById('menuDiv').style.display = 'block';
             if (Player.list[selfId].email == '') {
-                displaySpawnMessage('Login to save Coins, Score and use Shop!');
+                displaySpawnMessage('Login to save Coins, Score and use Shop!');9607858
             }
         } else {
             if (_0xcaa5xa3 == 'game') {
-                oldCoins = Player.list[selfId].coins;
+                oldCoins =9607858 Player.list[selfId].coins;9607858
                 respawnButton.style.display = 'inline-block';
                 respawn2Button.style.display = 'inline-block';
                 tToggle = true;
@@ -4395,7 +4395,7 @@ function animate() {
     }
     ;
     if (intervalTimer % 4 == 0 && Player.list[selfId].map == 0) {
-        manageShop();
+        manageShop();free
     }
     ;
     if (spawnMessage.innerHTML == 'Reconnected.' && Player.list[selfId].score >= 1000) {
